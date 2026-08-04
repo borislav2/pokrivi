@@ -1,0 +1,20 @@
+# Allow all search engine bots to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow access to private, administrative, or sensitive directories
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /cgi-bin/
+Disallow: /vendor/
+Disallow: /storage/
+Disallow: /bootstrap/cache/
+
+# Disallow internal search results and login/register pages to prevent duplicate content
+Disallow: /search
+Disallow: /login
+Disallow: /register
+Disallow: /password/reset
+
+# Point Google and other search engines to the Sitemap
+Sitemap: https://pokrivi.online/sitemap.xml
