@@ -31,10 +31,10 @@
             }
             .hero-section {
                 background: linear-gradient(135deg, rgba(26, 54, 93, 0.95) 0%, rgba(44, 82, 130, 0.9) 50%, rgba(49, 130, 206, 0.85) 100%),
-                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+                        url('https://static.wixstatic.com/media/01d5f1_a480064ffff64758aa96a8e9f6a75477~mv2.jpg/v1/fill/w_640,h_578,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/01d5f1_a480064ffff64758aa96a8e9f6a75477~mv2.jpg');
                 background-size: cover;
                 background-position: center;
-                background-attachment: fixed;
+                background-repeat: no-repeat;
             }
             .service-card {
                 transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -170,15 +170,15 @@
                         </div>
                     </div>
                     <div class="hidden md:flex items-center space-x-10">
-                        <a href="#services" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Услуги</a>
-                        <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">За нас</a>
-                        <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Контакти</a>
+                        <a href="{{ route('services') }}" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Услуги</a>
+                        <a href="{{ route('about') }}" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">За нас</a>
+                        <a href="{{ route('contact') }}" class="nav-link text-gray-700 hover:text-blue-600 transition-colors">Контакти</a>
                         <a href="tel:+359879189217" class="btn-primary text-white px-8 py-3 rounded-full font-bold transition-all flex items-center gap-2">
                             <span>📞</span>
                             <span>+359 87 9189 217</span>
                         </a>
                     </div>
-                    <button id="mobile-menu-btn" class="md:hidden p-3 rounded-xl hover:bg-gray-100 transition-colors">
+                    <button id="mobile-menu-btn" class="md:hidden p-3 rounded-xl hover:bg-gray-100 transition-colors" aria-label="Отвори меню" aria-expanded="false">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
@@ -188,9 +188,9 @@
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-lg">
                 <div class="px-4 py-6 space-y-4">
-                    <a href="#services" class="block text-gray-700 hover:text-blue-600 font-semibold py-2">Услуги</a>
-                    <a href="#about" class="block text-gray-700 hover:text-blue-600 font-semibold py-2">За нас</a>
-                    <a href="#contact" class="block text-gray-700 hover:text-blue-600 font-semibold py-2">Контакти</a>
+                    <a href="{{ route('services') }}" class="block text-gray-700 hover:text-blue-600 font-semibold py-2">Услуги</a>
+                    <a href="{{ route('about') }}" class="block text-gray-700 hover:text-blue-600 font-semibold py-2">За нас</a>
+                    <a href="{{ route('contact') }}" class="block text-gray-700 hover:text-blue-600 font-semibold py-2">Контакти</a>
                     <a href="tel:+359879189217" class="btn-primary block text-white text-center px-8 py-4 rounded-full font-bold">
                         📞 +359 87 9189 217
                     </a>
@@ -220,7 +220,7 @@
                                 <span class="text-2xl">📞</span>
                                 <span>Звънни сега</span>
                             </a>
-                            <a href="#contact" class="btn-secondary bg-white/10 hover:bg-white/20 text-white border-2 border-white/50 px-10 py-5 rounded-full font-bold text-xl transition-all text-center">
+                            <a href="{{ route('contact') }}" class="btn-secondary bg-white/10 hover:bg-white/20 text-white border-2 border-white/50 px-10 py-5 rounded-full font-bold text-xl transition-all text-center">
                                 📝 Безплатна оферта
                             </a>
                         </div>
@@ -242,18 +242,101 @@
                     <div class="hidden lg:block relative">
                         <div class="animate-float relative">
                             <div class="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-orange-500/30 rounded-3xl blur-3xl"></div>
-                            <div class="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-                                <svg class="w-full h-auto" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="50" y="200" width="300" height="80" fill="#8B4513" rx="5"/>
-                                    <polygon points="40,200 200,80 360,200" fill="#CD853F" stroke="#8B4513" stroke-width="3"/>
-                                    <rect x="180" y="200" width="40" height="80" fill="#654321"/>
-                                    <rect x="100" y="220" width="30" height="40" fill="#87CEEB" stroke="#4682B4" stroke-width="2"/>
-                                    <rect x="270" y="220" width="30" height="40" fill="#87CEEB" stroke="#4682B4" stroke-width="2"/>
-                                    <circle cx="200" cy="150" r="15" fill="#FFD700"/>
-                                    <path d="M200 135 L200 165" stroke="#FFD700" stroke-width="3"/>
-                                    <path d="M185 150 L215 150" stroke="#FFD700" stroke-width="3"/>
-                                </svg>
-                            </div>
+                           <div class="relative bg-slate-900/40 backdrop-blur-md rounded-3xl p-8 border border-white/10 shadow-2xl">
+    <svg class="w-full h-auto drop-shadow-xl" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Илюстрация на модерен покрив и къща">
+        <defs>
+            <!-- Градиент за покрива (Антрацит / Графит) -->
+            <linearGradient id="modernRoof" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#334155"/>
+                <stop offset="100%" stop-color="#0F172A"/>
+            </linearGradient>
+
+            <!-- Градиент за основната стена -->
+            <linearGradient id="modernWall" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#F8FAFC"/>
+                <stop offset="100%" stop-color="#E2E8F0"/>
+            </linearGradient>
+
+            <!-- Градиент за дървената ламперия -->
+            <linearGradient id="woodAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#D97706"/>
+                <stop offset="50%" stop-color="#B45309"/>
+                <stop offset="100%" stop-color="#78350F"/>
+            </linearGradient>
+
+            <!-- Градиент за стъклата -->
+            <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#0284C7" stop-opacity="0.1"/>
+            </linearGradient>
+
+            <!-- Отражение върху стъклата -->
+            <linearGradient id="glassReflection" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+                <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.1"/>
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+            </linearGradient>
+
+            <!-- Топло фасадно осветление -->
+            <linearGradient id="warmLight" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FDE047" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#FACC15" stop-opacity="0"/>
+            </linearGradient>
+
+            <!-- Фина сянка -->
+            <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#0F172A" flood-opacity="0.15"/>
+            </filter>
+        </defs>
+
+        <!-- Мек овал за сянка под къщата -->
+        <ellipse cx="200" cy="275" rx="160" ry="8" fill="#000000" fill-opacity="0.2" filter="blur(4px)" />
+
+        <!-- Основен корпус на къщата -->
+        <rect x="70" y="150" width="260" height="120" rx="2" fill="url(#modernWall)" filter="url(#softShadow)"/>
+
+        <!-- Дървена декоративна фасада (Дясна част) -->
+        <rect x="180" y="150" width="130" height="120" fill="url(#woodAccent)" />
+        <!-- Хоризонтални фуги на дървената ламперия -->
+        <path d="M180 165 H310 M180 180 H310 M180 195 H310 M180 210 H310 M180 225 H310 M180 240 H310 M180 255 H310" stroke="#451A03" stroke-width="0.75" stroke-opacity="0.4" />
+
+        <!-- Модерен Покрив с удължени козирки -->
+        <polygon points="45,155 200,65 355,155" fill="url(#modernRoof)" filter="url(#softShadow)" />
+        <!-- Покривен кант / Челна дъска (Slate Gray) -->
+        <polygon points="45,155 200,65 200,72 53,155" fill="#475569" />
+        <polygon points="355,155 200,65 200,72 347,155" fill="#1E293B" />
+
+        <!-- Архитектурно прозорче в таванската част (Триъгълно) -->
+        <polygon points="200,92 178,125 222,125" fill="url(#glassGrad)" stroke="#1E293B" stroke-width="2" />
+        <polygon points="200,92 178,125 222,125" fill="url(#glassReflection)" />
+
+        <!-- Панорамен френски прозорец (Лява част) -->
+        <rect x="95" y="170" width="65" height="100" rx="1" fill="url(#glassGrad)" stroke="#1E293B" stroke-width="2"/>
+        <rect x="95" y="170" width="65" height="100" fill="url(#glassReflection)"/>
+        <line x1="127.5" y1="170" x2="127.5" y2="270" stroke="#1E293B" stroke-width="1.5"/>
+        <line x1="95" y1="220" x2="160" y2="220" stroke="#1E293B" stroke-width="1.5"/>
+
+        <!-- Входна зона и Врата -->
+        <rect x="200" y="180" width="44" height="90" fill="#0F172A" />
+        <rect x="203" y="183" width="38" height="87" fill="#1E293B" />
+        <!-- Дълга модерна вертикална дръжка -->
+        <rect x="208" y="220" width="3" height="25" rx="1.5" fill="#E2E8F0" />
+
+        <!-- Квадратен прозорец на второ ниво (Дървена част) -->
+        <rect x="260" y="175" width="40" height="40" rx="1" fill="url(#glassGrad)" stroke="#1E293B" stroke-width="2"/>
+        <rect x="260" y="175" width="40" height="40" fill="url(#glassReflection)"/>
+        <line x1="280" y1="175" x2="280" y2="215" stroke="#1E293B" stroke-width="1.5"/>
+
+        <!-- Фасадно осветление (Лунички) -->
+        <!-- Лампа 1 -->
+        <rect x="186" y="168" width="6" height="8" rx="1" fill="#334155"/>
+        <polygon points="189,176 172,210 206,210" fill="url(#warmLight)"/>
+
+        <!-- Лампа 2 -->
+        <rect x="251" y="168" width="6" height="8" rx="1" fill="#334155"/>
+        <polygon points="254,176 237,210 271,210" fill="url(#warmLight)"/>
+    </svg>
+</div>
                         </div>
                     </div>
                 </div>
@@ -278,8 +361,8 @@
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-4">Смяна на Керемиди</h3>
                         <p class="text-gray-600 mb-6 leading-relaxed">Професионална подмяна на стари керемиди с нови, висококачествени материали. Гарантираме дълготрайност и естетика.</p>
-                        <a href="tel:+359879189217" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
-                            Поръчай сега 
+                        <a href="{{ route('service', ['slug' => 'smyana-na-keremidi']) }}" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
+                            Виж повече
                             <span class="ml-2 group-hover:translate-x-2 transition-transform">→</span>
                         </a>
                     </div>
@@ -290,8 +373,8 @@
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-4">Нови Веранди и Навеси</h3>
                         <p class="text-gray-600 mb-6 leading-relaxed">Проектиране и изграждане на модерни веранди и навеси по ваше желание. Функционални и елегантни решения.</p>
-                        <a href="tel:+359879189217" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
-                            Поръчай сега 
+                        <a href="{{ route('service', ['slug' => 'verandi-i-navesi']) }}" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
+                            Виж повече
                             <span class="ml-2 group-hover:translate-x-2 transition-transform">→</span>
                         </a>
                     </div>
@@ -300,10 +383,10 @@
                         <div class="icon-wrapper w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg">
                             🔧
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Иглаждане на Конструкции</h3>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Изграждане на Конструкции</h3>
                         <p class="text-gray-600 mb-6 leading-relaxed">Професионално изравняване и укрепване на покривни конструкции за максимална стабилност и безопасност.</p>
-                        <a href="tel:+359879189217" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
-                            Поръчай сега 
+                        <a href="{{ route('service', ['slug' => 'izgrajdane-na-konstrukcii']) }}" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
+                            Виж повече
                             <span class="ml-2 group-hover:translate-x-2 transition-transform">→</span>
                         </a>
                     </div>
@@ -314,8 +397,8 @@
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-4">Изолация и Хидроизолация</h3>
                         <p class="text-gray-600 mb-6 leading-relaxed">Висококачествена топлоизолация и хидроизолация за защита от влага и подобряване на енергийната ефективност.</p>
-                        <a href="tel:+359879189217" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
-                            Поръчай сега 
+                        <a href="{{ route('service', ['slug' => 'izolacia-i-hidroizolacia']) }}" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
+                            Виж повече
                             <span class="ml-2 group-hover:translate-x-2 transition-transform">→</span>
                         </a>
                     </div>
@@ -326,8 +409,8 @@
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-4">Беседки и Други</h3>
                         <p class="text-gray-600 mb-6 leading-relaxed">Изграждане на красиви беседки и други конструкции за вашия двор или градина. Индивидуален дизайн.</p>
-                        <a href="tel:+359879189217" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
-                            Поръчай сега 
+                        <a href="{{ route('service', ['slug' => 'besedki']) }}" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
+                            Виж повече
                             <span class="ml-2 group-hover:translate-x-2 transition-transform">→</span>
                         </a>
                     </div>
@@ -338,8 +421,8 @@
                         </div>
                         <h3 class="text-2xl font-bold text-gray-900 mb-4">Смяна на Улуци</h3>
                         <p class="text-gray-600 mb-6 leading-relaxed">Монтаж и подмяна на улучни системи за ефективно отводняване на дъждовната вода от вашия покрив.</p>
-                        <a href="tel:+359879189217" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
-                            Поръчай сега 
+                        <a href="{{ route('service', ['slug' => 'smiana-na-uluci']) }}" class="inline-flex items-center text-blue-600 font-bold hover:text-blue-800 transition-colors group">
+                            Виж повече
                             <span class="ml-2 group-hover:translate-x-2 transition-transform">→</span>
                         </a>
                     </div>
@@ -509,7 +592,7 @@
                     <a href="tel:+359879189217" class="btn-primary text-white px-12 py-5 rounded-full font-bold text-xl transition-all">
                         📞 Звънни сега
                     </a>
-                    <a href="#contact" class="bg-white hover:bg-gray-100 text-blue-900 px-12 py-5 rounded-full font-bold text-xl transition-all">
+                    <a href="{{ route('contact') }}" class="bg-white hover:bg-gray-100 text-blue-900 px-12 py-5 rounded-full font-bold text-xl transition-all">
                         📝 Безплатна оферта
                     </a>
                 </div>
@@ -565,39 +648,28 @@
         </a>
 
         <script>
-            // Mobile menu toggle
-            document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-                const menu = document.getElementById('mobile-menu');
-                menu.classList.toggle('hidden');
-            });
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
 
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                        // Close mobile menu if open
-                        document.getElementById('mobile-menu').classList.add('hidden');
-                    }
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    const isHidden = mobileMenu.classList.toggle('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
                 });
-            });
+            }
 
-            // Form submission
-            document.getElementById('contact-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const formData = new FormData(this);
-                const name = formData.get('name');
-                const phone = formData.get('phone');
-                const service = formData.get('service');
-                
-                alert(`Благодарим ви, ${name}! Ще се свържем с вас на ${phone} скоро относно избраната услуга.`);
-                this.reset();
-            });
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = new FormData(this);
+                    const name = formData.get('name') || 'Клиент';
+                    const phone = formData.get('phone') || '';
+
+                    alert(`Благодарим ви, ${name}! Ще се свържем с вас на ${phone} скоро относно избраната услуга.`);
+                    this.reset();
+                });
+            }
         </script>
     </body>
 </html>
