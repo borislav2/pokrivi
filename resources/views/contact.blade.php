@@ -15,7 +15,7 @@
 
                 <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
                     <div class="rounded-[2rem] bg-slate-900 p-8 text-white shadow-2xl">
-                        <h2 class="mb-8 text-3xl font-black">Контакт</h2>
+                        <h2 class="mb-8 text-3xl font-black">Контакти</h2>
 
                         <div class="space-y-7">
                             <div class="flex items-start gap-4">
