@@ -1,101 +1,95 @@
 @extends('layouts.site')
 
 @section('title', 'Контакти | Покривни услуги в Бургас')
-@section('meta_description', 'Свържете се с нас за безплатна консултация и оферта за покривни услуги, веранди, навеси, изолация и ремонти.')
+@section('meta_description', 'Свържете се с нас за безплатна консултация и оферта за покривни услуги, веранди, навеси, изолация и улуци в Бургас.')
 
 @section('content')
-    <main class="pt-28">
-        <section class="px-4 py-20 sm:px-6 lg:px-8">
-            <div class="mx-auto max-w-7xl">
-                <div class="mb-14 text-center">
-                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">Контакти</p>
-                    <h1 class="section-title mt-4 text-4xl font-black text-slate-900 md:text-5xl">Свържете се с нас</h1>
-                    <p class="mt-5 text-xl text-slate-600">Попълнете формата и ще се свържем с вас за безплатна консултация и оферта.</p>
+    <section class="bg-sand px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+            <p class="eyebrow">Контакти</p>
+            <h1 class="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight md:text-5xl">Свържете се с нас</h1>
+            <p class="mt-5 max-w-2xl text-lg text-ink-soft">Обадете се или ни пишете – ще ви консултираме и ще направим безплатна оферта.</p>
+        </div>
+    </section>
+
+    <section class="px-4 py-16 sm:px-6 lg:px-8">
+        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <div class="space-y-4">
+                <a href="tel:{{ config('site.phone_href') }}" class="group flex items-center gap-5 rounded-2xl bg-brand p-6 text-white transition hover:bg-brand-dark">
+                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white/15 p-3.5">@include('partials.icon', ['name' => 'phone'])</span>
+                    <span>
+                        <span class="block text-sm font-bold uppercase tracking-[0.15em] text-white/80">Обадете се</span>
+                        <span class="mt-1 block text-xl font-extrabold sm:text-2xl">{{ config('site.phone') }}</span>
+                    </span>
+                </a>
+
+                <a href="mailto:{{ config('site.email') }}" class="flex items-center gap-5 rounded-2xl border border-sand bg-white p-6 transition hover:border-brand">
+                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-soft p-3.5 text-brand">@include('partials.icon', ['name' => 'mail'])</span>
+                    <span class="min-w-0">
+                        <span class="block text-sm font-bold uppercase tracking-[0.15em] text-ink-soft">Имейл</span>
+                        <span class="mt-1 block break-all text-base font-extrabold sm:text-lg">{{ config('site.email') }}</span>
+                    </span>
+                </a>
+
+                <div class="flex items-center gap-5 rounded-2xl border border-sand bg-white p-6">
+                    <span class="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-brand-soft p-3.5 text-brand">@include('partials.icon', ['name' => 'pin'])</span>
+                    <span>
+                        <span class="block text-sm font-bold uppercase tracking-[0.15em] text-ink-soft">Район на работа</span>
+                        <span class="mt-1 block text-lg font-extrabold">{{ config('site.city') }} и региона</span>
+                    </span>
                 </div>
+            </div>
 
-                <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-                    <div class="rounded-[2rem] bg-slate-900 p-8 text-white shadow-2xl">
-                        <h2 class="mb-8 text-3xl font-black">Контакти</h2>
+            <div class="rounded-2xl border border-sand bg-white p-6 sm:p-8">
+                <h2 class="text-2xl font-extrabold">Изпратете запитване</h2>
+                <p class="mt-2 text-ink-soft">Попълнете формата и ще се отвори имейл със съобщението, готово за изпращане.</p>
 
-                        <div class="space-y-7">
-                            <div class="flex items-start gap-4">
-                                <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-xl">📞</div>
-                                <div>
-                                    <div class="text-sm uppercase tracking-[0.2em] text-slate-300">Телефон</div>
-                                    <a href="tel:+359879189217" class="mt-2 block text-xl font-semibold text-white hover:text-amber-300">+359 87 9189 217</a>
-                                </div>
-                            </div>
-                            <br><br>
-                            <div class="flex items-start gap-4">
-                                <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-xl">✉️</div>
-                                <div>
-                                    <div class="text-sm uppercase tracking-[0.2em] text-slate-300">Имейл</div>
-                                    <a href="mailto:stoyan4619@gmail.com" class="mt-2 block text-xl font-semibold text-white hover:text-amber-300">stoyan4619@gmail.com</a>
-                                </div>
-                            </div>
-                            <br><br>
-                            <div class="flex items-start gap-4">
-                                <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-xl">📍</div>
-                                <div>
-                                    <div class="text-sm uppercase tracking-[0.2em] text-slate-300">Адрес</div>
-                                    <div class="mt-2 text-xl font-semibold">Бургас, България</div>
-                                </div>
-                            </div>
+                <form id="contact-form" class="mt-8 space-y-5">
+                    <div class="grid gap-5 sm:grid-cols-2">
+                        <div>
+                            <label for="name" class="mb-2 block text-sm font-extrabold">Име *</label>
+                            <input id="name" name="name" type="text" required autocomplete="name" class="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3.5 outline-none transition focus:border-brand focus:bg-white">
+                        </div>
+                        <div>
+                            <label for="phone" class="mb-2 block text-sm font-extrabold">Телефон *</label>
+                            <input id="phone" name="phone" type="tel" required autocomplete="tel" class="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3.5 outline-none transition focus:border-brand focus:bg-white">
                         </div>
                     </div>
 
-                    <div class="rounded-[2rem] bg-white p-8 shadow-xl ring-1 ring-slate-200">
-                        <form id="contact-form" class="space-y-6">
-                            <div class="grid gap-6 md:grid-cols-2">
-                                <div>
-                                    <label for="name" class="mb-2 block text-sm font-bold text-slate-700">Име *</label>
-                                    <input id="name" type="text" name="name" required class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-base text-slate-900 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" placeholder="Вашето име">
-                                </div>
-                                <div>
-                                    <label for="phone" class="mb-2 block text-sm font-bold text-slate-700">Телефон *</label>
-                                    <input id="phone" type="tel" name="phone" required class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-base text-slate-900 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" placeholder="+359 87 9189 217">
-                                </div>
-                            </div>
-
-                            <div>
-                                <label for="email" class="mb-2 block text-sm font-bold text-slate-700">Имейл</label>
-                                <input id="email" type="email" name="email" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-base text-slate-900 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" placeholder="email@example.com">
-                            </div>
-
-                            <div>
-                                <label for="service" class="mb-2 block text-sm font-bold text-slate-700">Услуга *</label>
-                                <select id="service" name="service" required class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-base text-slate-900 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100">
-                                    <option value="">Изберете услуга</option>
-                                    <option value="Смяна на керемиди">Смяна на керемиди</option>
-                                    <option value="Веранди и навеси">Веранди и навеси</option>
-                                    <option value="Изолация и хидроизолация">Изолация и хидроизолация</option>
-                                    <option value="Беседки и други конструкции">Беседки и други конструкции</option>
-                                    <option value="Смяна на улуци">Смяна на улуци</option>
-                                    <option value="Друго">Друго</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="message" class="mb-2 block text-sm font-bold text-slate-700">Съобщение</label>
-                                <textarea id="message" rows="5" name="message" class="w-full rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 text-base text-slate-900 outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" placeholder="Опишете вашия проект..."></textarea>
-                            </div>
-
-                            <button type="submit" class="btn-primary w-full rounded-2xl px-6 py-4 text-lg font-bold text-white">📝 Изпрати запитване</button>
-                        </form>
+                    <div>
+                        <label for="service" class="mb-2 block text-sm font-extrabold">Услуга *</label>
+                        <select id="service" name="service" required class="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3.5 outline-none transition focus:border-brand focus:bg-white">
+                            <option value="">Изберете услуга</option>
+                            @foreach (config('site.services') as $s)
+                                <option value="{{ $s['title'] }}">{{ $s['title'] }}</option>
+                            @endforeach
+                            <option value="Друго">Друго</option>
+                        </select>
                     </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
+                    <div>
+                        <label for="message" class="mb-2 block text-sm font-extrabold">Съобщение</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Опишете накратко какво ви трябва – вид сграда, размер, кога искате да започнем." class="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3.5 outline-none transition focus:border-brand focus:bg-white"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-brand w-full !py-4 text-lg">Изпрати запитване</button>
+                    <p class="text-center text-sm text-ink-soft">Предпочитате разговор? Обадете се на <a href="tel:{{ config('site.phone_href') }}" class="font-extrabold text-brand">{{ config('site.phone') }}</a>.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+@endsection
+
+@push('scripts')
     <script>
-        document.getElementById('contact-form')?.addEventListener('submit', function (event) {
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
             event.preventDefault();
-            const formData = new FormData(this);
-            const name = formData.get('name') || 'Клиент';
-            const phone = formData.get('phone') || '';
-            alert(`Благодарим ви, ${name}! Ще се свържем с вас на ${phone} скоро относно избраната услуга.`);
-            this.reset();
+            var f = new FormData(this);
+            var subject = 'Запитване: ' + f.get('service');
+            var body = 'Име: ' + f.get('name') + '\nТелефон: ' + f.get('phone') + '\nУслуга: ' + f.get('service') +
+                '\n\n' + (f.get('message') || '');
+            window.location.href = 'mailto:{{ config('site.email') }}?subject=' + encodeURIComponent(subject) +
+                '&body=' + encodeURIComponent(body);
         });
     </script>
-@endsection
+@endpush
