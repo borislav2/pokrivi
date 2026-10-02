@@ -17,4 +17,4 @@ Disallow: /register
 Disallow: /password/reset
 
 # Point Google and other search engines to the Sitemap
-Sitemap: https://pokrivi.online/sitemap.xml
+Sitemap: https://pokrivi-burgas.eu/sitemap.xml
