@@ -1,33 +1,39 @@
 @extends('layouts.site')
 
 @section('title', 'Услуги | Покривни услуги в Бургас')
-@section('meta_description', 'Покривни услуги в Бургас – смяна на керемиди, веранди и навеси, изолация, хидроизолация и монтаж на улуци.')
+@section('meta_description', 'Смяна на керемиди, метални покриви, хидроизолация, веранди, навеси, беседки и улуци в Бургас. Вижте всички наши услуги.')
 
 @section('content')
-    <main class="pt-28">
-        <section class="bg-gradient-to-br from-slate-900 via-blue-900 to-sky-800 px-4 py-20 text-white sm:px-6 lg:px-8">
-            <div class="mx-auto max-w-7xl">
-                <p class="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">Нашите услуги</p>
-                <h1 class="mt-5 max-w-3xl text-4xl font-black md:text-6xl">Комплексни решения за покриви, външни конструкции и защита</h1>
-                <p class="mt-6 max-w-2xl text-lg text-slate-200">Предлагаме професионални услуги за ремонти, монтиране, изолация и довършване на покриви и външни пространства, съобразени с изискванията на всеки дом и бизнес.</p>
-            </div>
-        </section>
+    <section class="bg-sand px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+            <p class="eyebrow">Услуги</p>
+            <h1 class="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight md:text-5xl">Покривни и строителни услуги в Бургас</h1>
+            <p class="mt-5 max-w-2xl text-lg text-ink-soft">Изберете услуга, за да видите какво включва и снимки от наши обекти. Консултацията и офертата са безплатни.</p>
+        </div>
+    </section>
 
-        <section class="px-4 py-20 sm:px-6 lg:px-8">
-            <div class="mx-auto max-w-7xl">
-                <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-                    @foreach ($services as $slug => $service)
-                        <article class="service-card overflow-hidden rounded-[2rem] bg-white shadow-lg ring-1 ring-slate-200">
-                            <img src="{{ $service['image'] }}" alt="{{ $service['title'] }}" width="1200" height="800" class="h-64 w-full object-cover" loading="lazy" decoding="async" />
-                            <div class="p-8">
-                                <h2 class="text-2xl font-black text-slate-900">{{ $service['title'] }}</h2>
-                                <p class="mt-4 text-slate-600">{{ $service['short_description'] }}</p>
-                                <a href="{{ route('service', ['slug' => $slug]) }}" class="mt-6 inline-flex items-center rounded-full bg-blue-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-blue-800">Виж повече</a>
-                            </div>
-                        </article>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-    </main>
+    <section class="px-4 pt-16 sm:px-6 lg:px-8">
+        <div class="mx-auto grid max-w-7xl gap-8">
+            @foreach ($services as $slug => $service)
+                <a href="{{ route('service', $slug) }}" class="photo-card group grid overflow-hidden rounded-2xl border border-sand bg-white transition hover:shadow-xl md:grid-cols-[0.8fr_1.2fr]">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-sand md:aspect-auto md:min-h-[260px] {{ $loop->even ? 'md:order-2' : '' }}">
+                        @include('partials.photo', ['key' => $service['cover'], 'alt' => $service['title']])
+                    </div>
+                    <div class="flex flex-col justify-center p-6 md:p-10">
+                        <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-soft p-2.5 text-brand">
+                            @include('partials.icon', ['name' => $service['icon']])
+                        </span>
+                        <h2 class="mt-4 text-2xl font-extrabold">{{ $service['title'] }}</h2>
+                        <p class="mt-3 leading-relaxed text-ink-soft">{{ $service['short_description'] }}</p>
+                        <span class="mt-5 inline-flex items-center gap-1.5 font-extrabold text-brand">
+                            Виж подробности
+                            @include('partials.icon', ['name' => 'arrow', 'class' => 'h-5 w-5 transition group-hover:translate-x-1'])
+                        </span>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    </section>
+
+    @include('partials.cta')
 @endsection

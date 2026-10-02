@@ -1,98 +1,81 @@
 @extends('layouts.site')
 
 @section('title', 'За нас | Покривни услуги в Бургас')
-@section('meta_description', 'Научете повече за нашата компания, опита, качеството и ангажимента за надеждни покривни и строителни услуги в Бургас.')
+@section('meta_description', 'Научете повече за нашия екип, опита и ангажимента ни към надеждни покривни и строителни решения в Бургас.')
 
 @section('content')
-    <main class="pt-28">
-        <section class="hero-surface px-4 py-20 text-white sm:px-6 lg:px-8">
-            <div class="mx-auto max-w-7xl grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-                <div>
-                    <p class="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-amber-300">За нас</p>
-                    <h1 class="text-4xl font-black md:text-5xl">Надеждни покривни решения с опит и отговорност</h1>
-                    <p class="mt-6 max-w-2xl text-lg text-slate-200">Работим с фирми и частни клиенти, които търсят качествена работа, професионализъм и здравословно отношение към проекта. Всяка услуга се изпълнява с внимание към детайла и съобразяване с бюджета и срока.</p>
-                    <div class="mt-8 flex flex-wrap gap-4">
-                        <a href="{{ route('contact') }}" class="btn-primary inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-bold text-white">Запитване</a>
-                        <a href="{{ route('services') }}" class="inline-flex items-center justify-center rounded-full border border-white/60 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm">Виж услугите</a>
-                    </div>
-                </div>
-
-                <div class="overflow-hidden rounded-[2rem] border border-white/20 bg-white/5 p-3 backdrop-blur-sm">
-                    <img src="https://pokrivi94.com/wp-content/uploads/2026/04/q18.jpg" alt="Покривни дейности" width="1200" height="900" class="h-[480px] w-full rounded-[1.5rem] object-cover" loading="eager" />
+    <section class="px-4 py-14 sm:px-6 md:py-20 lg:px-8">
+        <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+                <p class="eyebrow">За нас</p>
+                <h1 class="mt-3 text-4xl font-extrabold tracking-tight md:text-5xl">Надеждни покривни решения с опит и отговорност</h1>
+                <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">Работим с частни клиенти и фирми, които търсят качествена работа, професионално отношение и спазени срокове. Всеки покрив за нас е личен ангажимент – от първия оглед до последната проверка.</p>
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <a href="{{ route('contact') }}" class="btn btn-brand">Заявете оферта</a>
+                    <a href="{{ route('gallery') }}" class="btn btn-outline">Вижте обектите ни</a>
                 </div>
             </div>
-        </section>
+            <div class="relative">
+                <div class="absolute -inset-3 -z-10 -rotate-2 rounded-[2rem] bg-sand"></div>
+                <img src="{{ asset('images/obekti-01.jpg') }}" alt="Завършен обект – къща с нов покрив и веранда" width="1400" height="1050" class="aspect-[4/3] w-full rounded-[1.5rem] object-cover shadow-xl" fetchpriority="high">
+            </div>
+        </div>
+    </section>
 
-        <section class="py-20">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="grid gap-6 md:grid-cols-3">
-                    <div class="site-card rounded-3xl p-8 shadow-sm">
-                        <div class="mb-4 text-4xl font-black text-blue-700">20+</div>
-                        <h2 class="mb-2 text-xl font-bold text-slate-900">Години опит</h2>
-                        <p class="text-slate-600">Дългогодишна практика в строителството и монтажа на покривни системи.</p>
+    <section class="bg-sand px-4 py-14 sm:px-6 lg:px-8">
+        <div class="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
+            @foreach ([['20+', 'Години опит', 'Дългогодишна практика в строителството и монтажа на покривни системи.'], ['1000+', 'Проекта', 'Ремонти, монтажи и реконструкции в различни сгради.'], ['10–30', 'Години гаранция', 'Качествени материали и надеждна работа, която издържа във времето.']] as [$num, $title, $text])
+                <div class="rounded-2xl bg-white p-8">
+                    <div class="text-4xl font-extrabold text-brand">{{ $num }}</div>
+                    <h2 class="mt-2 text-xl font-extrabold">{{ $title }}</h2>
+                    <p class="mt-2 text-ink-soft">{{ $text }}</p>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
+    <section class="px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl">
+            <div class="max-w-2xl">
+                <p class="eyebrow">Защо ние</p>
+                <h2 class="section-heading mt-3">Градим доверие във всеки проект</h2>
+            </div>
+            <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+                @foreach ([
+                    ['check', 'Професионализъм', 'Екипът ни работи внимателно и според най-високите стандарти в бранша.'],
+                    ['shield', 'Издръжливи материали', 'Използваме системи, които издържат на лошо време и на годините.'],
+                    ['frame', 'Точен подход', 'Всеки проект се планира според условията на обекта и желанията ви.'],
+                    ['chat', 'Личен контакт', 'Винаги сме на разположение да ви консултираме и да помогнем с избора.'],
+                ] as [$icon, $title, $text])
+                    <div class="rounded-2xl border border-sand bg-white p-7">
+                        <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-soft p-2.5 text-brand">@include('partials.icon', ['name' => $icon])</span>
+                        <h3 class="mt-5 text-lg font-extrabold">{{ $title }}</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-ink-soft">{{ $text }}</p>
                     </div>
-                    <div class="site-card rounded-3xl p-8 shadow-sm">
-                        <div class="mb-4 text-4xl font-black text-blue-700">1000+</div>
-                        <h2 class="mb-2 text-xl font-bold text-slate-900">Проекта</h2>
-                        <p class="text-slate-600">Извършили сме десетки ремонти, монтажи и реконструкции в различни сгради.</p>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+            <div class="grid grid-cols-2 gap-3">
+                @foreach (['konstrukcii-03', 'keremidi-04', 'verandi-01', 'metalni-03'] as $key)
+                    <div class="overflow-hidden rounded-xl bg-sand {{ $loop->odd ? '' : 'mt-6' }}">
+                        @include('partials.photo', ['key' => $key, 'alt' => 'Работа на нашия екип', 'class' => 'aspect-[3/4] w-full object-cover'])
                     </div>
-                    <div class="site-card rounded-3xl p-8 shadow-sm">
-                        <div class="mb-4 text-4xl font-black text-blue-700">10-30</div>
-                        <h2 class="mb-2 text-xl font-bold text-slate-900">Години гаранция</h2>
-                        <p class="text-slate-600">Предлагаме качествени материали и надежна работа, която да издържи години.</p>
-                    </div>
+                @endforeach
+            </div>
+            <div>
+                <p class="eyebrow">Нашият подход</p>
+                <h2 class="section-heading mt-3">От първата консултация до финалната проверка</h2>
+                <div class="mt-6 space-y-5 text-lg leading-relaxed text-ink-soft">
+                    <p>Първо се запознаваме с вашия обект, нужди и бюджет. След това предлагаме реалистично решение с ясна оферта и срок.</p>
+                    <p>По време на изпълнението следим качеството на материалите и монтажа, а след приключване проверяваме всичко заедно с вас.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="bg-white py-20">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="text-center">
-                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-blue-700">Защо нас</p>
-                    <h2 class="section-title mt-4 text-4xl font-black text-slate-900">Строим доверие в всеки проект</h2>
-                </div>
-
-                <div class="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
-                    <div class="rounded-3xl bg-slate-50 p-8 shadow-sm">
-                        <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-2xl">✅</div>
-                        <h3 class="mb-3 text-xl font-bold text-slate-900">Професионализъм</h3>
-                        <p class="text-slate-600">Екипът ни работи внимателно и съобразно най-високите стандарти в бранша.</p>
-                    </div>
-                    <div class="rounded-3xl bg-slate-50 p-8 shadow-sm">
-                        <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100 text-2xl">🛠️</div>
-                        <h3 class="mb-3 text-xl font-bold text-slate-900">Издръжливи материали</h3>
-                        <p class="text-slate-600">Използваме системи, които издържат на неблагоприятни атмосферни условия и време.</p>
-                    </div>
-                    <div class="rounded-3xl bg-slate-50 p-8 shadow-sm">
-                        <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100 text-2xl">📐</div>
-                        <h3 class="mb-3 text-xl font-bold text-slate-900">Точен подход</h3>
-                        <p class="text-slate-600">Всеки проект се планира според специфичните условия на обекта и изискванията на клиента.</p>
-                    </div>
-                    <div class="rounded-3xl bg-slate-50 p-8 shadow-sm">
-                        <div class="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-100 text-2xl">🤝</div>
-                        <h3 class="mb-3 text-xl font-bold text-slate-900">Личен контакт</h3>
-                        <p class="text-slate-600">Винаги сме на разположение да ви консултираме и да ви помогнем да изберете най-доброто решение.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-20">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="grid gap-10 lg:grid-cols-[1fr_1.1fr] items-center">
-                    <div>
-                        <img src="https://pokriv-remont.com/wp-content/uploads/2021/02/20-viber_%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_2020-03-04_14-51-36-1-1080x675.jpg" alt="Покривна конструкция" width="1200" height="900" class="h-[500px] w-full rounded-[2rem] object-cover shadow-2xl" loading="lazy" />
-                    </div>
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-amber-600">Нашият подход</p>
-                        <h2 class="mt-4 text-4xl font-black text-slate-900">От първата консултация до финалната проверка</h2>
-                        <div class="mt-8 space-y-6 text-slate-700">
-                            <p>Първо се запознаваме с вашия обект, нужди и бюджет. След това предлагаме решение, което е реалистично и устойчиво в дългосрочен план.</p>
-                            <p>По време на изпълнението следим качеството на материалите и монтажа, а след приключване провеждаме финална проверка и даваме ясни препоръки за поддръжка.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    @include('partials.cta', ['title' => 'Нека обсъдим вашия проект'])
 @endsection
