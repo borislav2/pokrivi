@@ -14,7 +14,9 @@
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:image" content="@yield('og_image', asset('images/hero.jpg'))">
         <link rel="canonical" href="{{ url()->current() }}">
-        <link rel="icon" href="{{ asset('favicon.ico') }}">
+        <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+        <link rel="alternate icon" href="{{ asset('favicon.ico') }}">
+        <link rel="apple-touch-icon" href="{{ asset('images/logo-mark.png') }}">
         <title>@yield('title', 'Покривни услуги Бургас')</title>
 
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -58,9 +60,7 @@
         <header class="sticky top-0 z-50 border-b border-sand bg-cream/95 backdrop-blur">
             <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
                 <a href="{{ route('home') }}" class="flex items-center gap-3" aria-label="{{ config('site.name') }} – начало">
-                    <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand text-white">
-                        @include('partials.icon', ['name' => 'tiles', 'class' => 'h-6 w-6'])
-                    </span>
+                    <img src="{{ asset('images/logo-mark.svg') }}" alt="" width="44" height="44" class="h-11 w-11">
                     <span class="leading-tight">
                         <span class="block text-lg font-extrabold tracking-tight">{{ config('site.name') }}</span>
                         <span class="block text-[11px] font-bold uppercase tracking-[0.2em] text-ink-soft">{{ config('site.city') }}</span>
@@ -100,9 +100,7 @@
             <div class="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
                 <div>
                     <div class="mb-5 flex items-center gap-3">
-                        <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand text-white">
-                            @include('partials.icon', ['name' => 'tiles', 'class' => 'h-6 w-6'])
-                        </span>
+                        <img src="{{ asset('images/logo-mark.svg') }}" alt="" width="44" height="44" class="h-11 w-11">
                         <span class="text-xl font-extrabold text-white">{{ config('site.name') }}</span>
                     </div>
                     <p class="max-w-md leading-relaxed text-stone-400">Професионални покривни услуги с гарантирано качество и достъпни цени в Бургас и региона. Безплатна консултация и оферта.</p>
