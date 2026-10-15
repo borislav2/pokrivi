@@ -112,7 +112,7 @@
                 <a href="{{ route('gallery') }}" class="btn btn-outline self-start sm:self-auto">Всички снимки</a>
             </div>
 
-            @php($featured = ['obekti-01', 'keremidi-03', 'verandi-01', 'obekti-04', 'metalni-03', 'keremidi-04'])
+            @php($featured = ['obekti-01', 'keremidi-03', 'verandi-05', 'obekti-04', 'metalni-03', 'keremidi-04'])
             <div class="mt-10 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
                 @foreach ($featured as $i => $key)
                     <a href="{{ asset('images/'.$key.'.jpg') }}" data-lightbox="home" data-alt="Обект на {{ config('site.name') }}" class="photo-card relative block overflow-hidden rounded-xl bg-sand {{ $i === 0 ? 'col-span-2 aspect-[16/9] md:col-span-2 md:row-span-2 md:aspect-auto' : 'aspect-[4/3]' }}">

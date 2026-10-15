@@ -105,7 +105,6 @@ return [
     'verandi' => [
         'label' => 'Веранди и навеси',
         'images' => [
-            'verandi-01' => [640, 480],
             'verandi-02' => [480, 640],
             'verandi-03' => [640, 480],
             'verandi-04' => [480, 640],
@@ -118,8 +117,6 @@ return [
     'besedki' => [
         'label' => 'Беседки',
         'images' => [
-            'besedki-01' => [640, 480],
-            'besedki-02' => [640, 480],
             'besedki-03' => [480, 640],
             'besedki-04' => [480, 640],
         ],

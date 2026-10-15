@@ -60,7 +60,7 @@
     <section class="bg-white px-4 py-20 sm:px-6 lg:px-8">
         <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
             <div class="grid grid-cols-2 gap-3">
-                @foreach (['konstrukcii-03', 'keremidi-04', 'verandi-01', 'metalni-03'] as $key)
+                @foreach (['konstrukcii-03', 'keremidi-04', 'verandi-05', 'metalni-03'] as $key)
                     <div class="overflow-hidden rounded-xl bg-sand {{ $loop->odd ? '' : 'mt-6' }}">
                         @include('partials.photo', ['key' => $key, 'alt' => 'Работа на нашия екип', 'class' => 'aspect-[3/4] w-full object-cover'])
                     </div>
