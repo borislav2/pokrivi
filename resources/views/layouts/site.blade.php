@@ -134,7 +134,12 @@
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-white/10 py-6 text-center text-sm text-stone-500">© {{ date('Y') }} {{ config('site.name') }}. Всички права запазени.</div>
+            <div class="border-t border-white/10">
+                <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-sm text-stone-500 sm:px-6 md:flex-row lg:px-8">
+                    <p>© {{ date('Y') }} {{ config('site.name') }}. Всички права запазени.</p>
+                    <p>Сайтът е изработен от <a href="https://creatiumlab.com" target="_blank" rel="noopener" class="font-bold text-stone-300 underline decoration-brand underline-offset-4 transition hover:text-white">Creatiumlab</a></p>
+                </div>
+            </div>
         </footer>
 
         <div class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-sand bg-cream/95 p-2 backdrop-blur md:hidden">
