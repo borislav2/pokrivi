@@ -42,6 +42,9 @@ return [
             'keremidi-15' => [480, 640],
             'keremidi-16' => [480, 640],
             'keremidi-17' => [480, 640],
+            'keremidi-18' => [640, 1184],
+            'keremidi-19' => [640, 1173],
+            'keremidi-20' => [640, 853],
         ],
     ],
     'konstrukcii' => [
@@ -81,6 +84,8 @@ return [
             'izolacia-05' => [640, 480],
             'izolacia-06' => [480, 640],
             'izolacia-07' => [640, 480],
+            'izolacia-08' => [640, 1157],
+            'izolacia-09' => [640, 1165],
         ],
     ],
     'metalni' => [
